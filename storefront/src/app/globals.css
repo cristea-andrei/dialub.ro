@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Brand palette (from dialub.ro / pakelo.com) ---- */
+  --color-pakelo-red: #e3241c;
+  --color-pakelo-red-dark: #b81a14;
+  --color-pakelo-pink: #fe114b;
+  --color-ink: #0b0b0b;
+  --color-ink-soft: #141414;
+  --color-graphite: #2d3748;
+  --color-slate-soft: #4a5568;
+  --color-mist: #edf2f7;
+  --color-fog: #f7fafc;
+  --color-chalk: #dadada;
+
+  --font-display: var(--font-archivo), "Archivo", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+
+  --container-page: 1600px;
+
+  --animate-ken-burns: ken-burns 12s ease-out forwards;
+  --animate-marquee: marquee 38s linear infinite;
+}
+
+@keyframes ken-burns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.14); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-graphite);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-pakelo-red);
+    color: #fff;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
+
+  /* Thin red rule used across the site as a section marker */
+  .rule-red::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    background: var(--color-pakelo-red);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Respect reduced-motion for every decorative animation */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Datasheet prose imported from the old WordPress product descriptions */
+.datasheet p { margin-block: 0 1rem; }
+.datasheet p:last-child { margin-bottom: 0; }
+.datasheet strong { color: var(--color-ink); font-weight: 600; }
+.datasheet ul { margin-block: 0 1rem; padding-left: 1.15rem; list-style: disc; }
+.datasheet li { margin-bottom: 0.4rem; }
+
+/* Legal pages — long-form prose imported from WordPress */
+.legal h2 {
+  margin-block: 2.5rem 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.legal h2:first-child { margin-top: 0; }
+.legal h3 { margin-block: 1.75rem 0.5rem; font-weight: 600; color: var(--color-ink); }
+.legal p { margin-bottom: 1rem; font-size: 15px; line-height: 1.75; }
+.legal ul, .legal ol { margin-block: 0 1.25rem; padding-left: 1.25rem; }
+.legal ul { list-style: disc; }
+.legal ol { list-style: decimal; }
+.legal li { margin-bottom: 0.5rem; font-size: 15px; line-height: 1.7; }
+.legal strong { color: var(--color-ink); font-weight: 600; }
+.legal a { color: var(--color-pakelo-red); text-decoration: underline; text-underline-offset: 2px; }
+.legal a:hover { color: var(--color-ink); }
+
+/* Approval blocks kept verbatim from the datasheet */
+.datasheet.specs p { margin-bottom: 0.85rem; }
+.datasheet.specs p:first-child { font-weight: 600; color: var(--color-ink); }
