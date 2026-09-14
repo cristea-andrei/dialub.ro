@@ -1,5 +1,7 @@
 # Dialub Expert — Pakelo Lubricants Romania
 
+**Live:** https://dialub-ro.vercel.app
+
 Replacement for the WordPress/Elementor site at **dialub.ro**, rebuilt on a modern
 headless stack. Same images, same copy, same Pakelo vibe — no page builder.
 
