@@ -33,10 +33,12 @@ npm run build    # production build
 
 ## Deploying
 
-Hosted on **Vercel**, which builds on every push to `main`.
+Hosted on **Vercel** — project `dialub-ro`, connected to this repo through the
+GitHub integration, so every push to `main` deploys to production and every PR
+gets a preview URL.
 
-The repo is a monorepo, so the Vercel project's **Root Directory must be set to
-`storefront`** — everything else is zero-config.
+The repo is a monorepo, so the project's **Root Directory is set to
+`storefront`**. Everything else is zero-config.
 
 | Variable | Needed for | Notes |
 | --- | --- | --- |
