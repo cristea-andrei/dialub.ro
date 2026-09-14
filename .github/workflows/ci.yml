@@ -21,6 +21,12 @@ jobs:
           cache-dependency-path: storefront/package-lock.json
 
       - run: npm ci
+
+      # PageProps/LayoutProps are generated, not checked in, so they have to
+      # exist before tsc runs on a clean checkout.
+      - name: Generate route types
+        run: npx next typegen
+
       - run: npx tsc --noEmit
       - run: npm run lint
       - run: npm run build
